@@ -1,13 +1,11 @@
 import java.util.Scanner;
 
-
 public class Main {
     static Scanner sc = new Scanner(System.in);
     static Student[] students = new Student[10];
     static Grievance[] grievances = new Grievance[50];
     static int studentCount = 0;
     static int grievanceCount = 0;
-
 
     public static void main(String[] args) {
         int choice;
@@ -20,7 +18,6 @@ public class Main {
             System.out.print("Enter choice: ");
             choice = sc.nextInt();
             sc.nextLine();
-
 
             switch (choice) {
                 case 1:
