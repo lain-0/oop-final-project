@@ -1,13 +1,11 @@
 import java.util.Scanner;
 
-
 public class Main {
     static Scanner sc = new Scanner(System.in);
     static Student[] students = new Student[10];
     static Grievance[] grievances = new Grievance[50];
     static int studentCount = 0;
     static int grievanceCount = 0;
-
 
     public static void main(String[] args) {
         int choice;
@@ -20,7 +18,6 @@ public class Main {
             System.out.print("Enter choice: ");
             choice = sc.nextInt();
             sc.nextLine();
-
 
             switch (choice) {
                 case 1:
@@ -41,7 +38,6 @@ public class Main {
         } while (choice != 4);
     }
 
-
     // STUDENT REGISTRATION
     static void registerStudent() {
         if (studentCount >= students.length) {
@@ -49,16 +45,13 @@ public class Main {
             return;
         }
 
-
         System.out.print("\nEnter SR-Code (format ##-#####): ");
         String srCode = sc.nextLine().trim();
-
 
         if (!srCode.matches("\\d{2}-\\d{5}")) {
             System.out.println("Invalid SR-Code format. Must be ##-#####.");
             return;
         }
-
 
         for (int i = 0; i < studentCount; i++) {
             if (students[i] != null && students[i].getSrCode().equals(srCode)) {
@@ -67,7 +60,6 @@ public class Main {
             }
         }
 
-
         System.out.print("Enter Full Name: ");
         String name = sc.nextLine().trim();
         System.out.print("Enter Email: ");
@@ -75,12 +67,10 @@ public class Main {
         System.out.print("Create Password: ");
         String password = sc.nextLine().trim();
 
-
         students[studentCount] = new Student(srCode, name, password);
         studentCount++;
         System.out.println("Registration successful! You can now log in.");
     }
-
 
     // STUDENT LOGIN
     static void studentLogin() {
@@ -88,7 +78,6 @@ public class Main {
         String sr = sc.nextLine().trim();
         System.out.print("Enter Password: ");
         String pw = sc.nextLine().trim();
-
 
         Student loggedIn = null;
         for (int i = 0; i < studentCount; i++) {
@@ -98,14 +87,12 @@ public class Main {
             }
         }
 
-
         if (loggedIn != null) {
             studentMenu(loggedIn);
         } else {
             System.out.println("Invalid login credentials!");
         }
     }
-
 
     // STUDENT DASHBOARD
     static void studentMenu(Student s) {
@@ -119,7 +106,6 @@ public class Main {
             System.out.print("Enter choice: ");
             choice = sc.nextInt();
             sc.nextLine();
-
 
             switch (choice) {
                 case 1:
@@ -137,14 +123,12 @@ public class Main {
         } while (choice != 3);
     }
 
-
     // FILE CONCERN
     static void fileConcern(Student s) {
         if (grievanceCount >= grievances.length) {
             System.out.println("Grievance storage full!");
             return;
         }
-
 
         System.out.println("\nCategories:");
         System.out.println("[1] Academic");
@@ -155,7 +139,6 @@ public class Main {
         System.out.print("Choose category (1-5): ");
         int cat = sc.nextInt();
         sc.nextLine();
-
 
         String category;
         switch (cat) {
@@ -176,19 +159,16 @@ public class Main {
                 break;
         }
 
-
         System.out.print("Enter Concern Title: ");
         String title = sc.nextLine().trim();
         System.out.print("Describe your concern: ");
         String desc = sc.nextLine().trim();
-
 
         // assign then increment to keep consistency
         grievances[grievanceCount] = new Grievance(s.getSrCode(), title, category, desc);
         grievanceCount++;
         System.out.println("Concern submitted successfully!");
     }
-
 
     // VIEW STUDENT'S CONCERNS
     static void viewMyConcerns(Student s) {
@@ -202,14 +182,12 @@ public class Main {
         if (!found) System.out.println("No concerns found.");
     }
 
-
     // ADMIN LOGIN
     static void adminLogin() {
         System.out.print("Enter admin username: ");
         String user = sc.nextLine().trim();
         System.out.print("Enter password: ");
         String pass = sc.nextLine().trim();
-
 
         if (user.equals("admin") && pass.equals("admin")) {
             Admin admin = new Admin();
@@ -218,7 +196,6 @@ public class Main {
             System.out.println("Invalid admin credentials!");
         }
     }
-
 
     // ADMIN DASHBOARD
     static void adminMenu(Admin admin) {
@@ -231,7 +208,6 @@ public class Main {
             System.out.print("Enter choice: ");
             choice = sc.nextInt();
             sc.nextLine();
-
 
             switch (choice) {
                 case 1:
