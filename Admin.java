@@ -12,7 +12,7 @@ public class Admin {
         }
     }
 
-    void updateConcern(Grievance[] gList, int count) { //update a grievance's status and feedback
+    void updateConcern(Grievance[] gList, int count) { //update grievance's status and feedback
         System.out.print("Enter Grievance ID to update: ");
         int id = sc.nextInt();
         sc.nextLine();
@@ -35,4 +35,5 @@ public class Admin {
     }
 
 }
+
 
