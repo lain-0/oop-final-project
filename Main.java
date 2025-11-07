@@ -19,7 +19,7 @@ public class Main {
             choice = sc.nextInt(); //reads user input
             sc.nextLine();
 
-            switch (choice) { //runs different actions depends on user choose
+            switch (choice) { //runs different actions depends on user chooses 1-4
                 case 1:
                     studentLogin();
                     break;
@@ -82,7 +82,7 @@ public class Main {
         String pw = sc.nextLine().trim();
 
         Student loggedIn = null;
-        for (int i = 0; i < studentCount; i++) { //searches for matching aaccount inside the student array
+        for (int i = 0; i < studentCount; i++) { //searches for matching  student account inside the student array
             if (students[i] != null && students[i].getSrCode().equals(sr) && students[i].getPassword().equals(pw)) {
                 loggedIn = students[i];
                 break;
@@ -127,35 +127,34 @@ public class Main {
     }
 
     // FILE CONCERN
-    static void fileConcern(Student s) { //alows to file a concern
+    static void fileConcern(Student s) { //allows to file a concern
         if (grievanceCount >= grievances.length) {
             System.out.println("Grievance storage full!");
             return;
         }
 
         System.out.println("\nCategories:");
-        System.out.println("[1] Academic");
-        System.out.println("[2] Financial");
-        System.out.println("[3] Facilities");
-        System.out.println("[4] Discipline");
+        System.out.println("[1] Academic / Akademiko");
+        System.out.println("[2] Administrative Decisions / Desisyong Administratibo");
+        System.out.println("[3] Service and Facilities / Serbisyo at Pasilidad");
+        System.out.println("[4] Harrassment / Panghaharas");
         System.out.println("[5] Others");
         System.out.print("Choose category (1-5): ");
         int cat = sc.nextInt();
-        sc.nextLine();
 
         String category;
         switch (cat) { //converts number 1-5 into category text
             case 1:
-                category = "Academic";
+                category = "Academic/ Akademiko";
                 break;
             case 2:
-                category = "Financial";
+                category = "Administrative Decisions / Desisyong Administratibo";
                 break;
             case 3:
-                category = "Facilities";
+                category = "Service and Facilities / Serbisyo at Pasilidad";
                 break;
             case 4:
-                category = "Discipline";
+                category = "Harrassment / Panghaharas";
                 break;
             default:
                 category = "Others";
@@ -164,7 +163,7 @@ public class Main {
 
         System.out.print("Enter Concern Title: ");
         String title = sc.nextLine().trim();
-        System.out.print("Describe your concern: ");
+        System.out.print("Describe your concern (Magbigay ng maikling paglalarawan tungkol sa iyong pangunahing concern o reklamo.: ");
         String desc = sc.nextLine().trim();
 
         // assign then increment to keep consistency
