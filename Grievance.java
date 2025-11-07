@@ -9,7 +9,7 @@ public class Grievance {
     private String feedback; //admins response
 
 
-    public Grievance(String studentSR, String title, String category, String description) { // requires 4 details
+    public Grievance(String studentSR, String title, String category, String description) { //Constructor,  requires 4 details
         this.studentSR = studentSR; //stores the provided information into objects
         this.title = title;
         this.category = category;
@@ -50,3 +50,4 @@ public class Grievance {
         System.out.println("Feedback: " + feedback);
     } //readable or clear format
 }
+
